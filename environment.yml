@@ -1,0 +1,21 @@
+name: physics
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - numpy
+  - scipy
+  - matplotlib
+  - pandas
+  - sympy
+  - jupyterlab
+  - notebook
+  - ipykernel
+  - ipywidgets
+  - h5py
+  - pyyaml
+  - tqdm
+  - pip
+  - pip:
+      - astropy
