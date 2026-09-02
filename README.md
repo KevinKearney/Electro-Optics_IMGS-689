@@ -26,21 +26,11 @@ repository.
 
 ## Environment setup
 
-Create the environment once, from the repository root:
+`environment.yml` is a conda-format file. The instructions below are for conda:
 
 ```bash
 conda env create -f environment.yml
 conda activate physics
-```
-
-If this is the first time using this environment with Jupyter or Quarto on this machine,
-register it as a kernel (a one-time step per machine -- it does **not** travel with the
-environment or with any notebook file, and has to be redone on a fresh clone or a new
-machine):
-
-```bash
-python -m ipykernel install --user --name physics --display-name "Python (physics)"
-jupyter kernelspec list   # confirm "physics" now appears
 ```
 
 To pick up changes after editing `environment.yml`:
@@ -48,3 +38,24 @@ To pick up changes after editing `environment.yml`:
 ```bash
 conda env update -f environment.yml --prune
 ```
+
+### uv / venv (optional)
+
+`environment.yml` is conda-specific -- neither `uv` nor Python's built-in `venv` reads it
+directly, and there's no automated converter that reliably goes from `environment.yml` to a
+`uv`/`venv` setup. Every package currently listed happens to also be available on PyPI, so
+the same environment can be approximated by hand with either tool:
+
+```bash
+# uv
+uv venv
+uv pip install numpy scipy matplotlib pandas sympy jupyterlab notebook ipykernel ipywidgets h5py pyyaml tqdm astropy
+
+# venv + pip
+python -m venv .venv
+source .venv/bin/activate
+pip install numpy scipy matplotlib pandas sympy jupyterlab notebook ipykernel ipywidgets h5py pyyaml tqdm astropy
+```
+
+This list has to be kept in sync with `environment.yml` by hand if you add packages there --
+conda is the source of truth for this project.
