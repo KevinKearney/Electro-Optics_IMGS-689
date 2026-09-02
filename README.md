@@ -8,7 +8,6 @@ project/topic.
 ```
 Electro-Optics_IMGS-689/
 ├── environment.yml        # shared conda environment for every project in this repo
-├── CHEATSHEET.md           # recurring dev-environment gotchas (Quarto, Jupyter, conda)
 ├── README.md
 ├── .gitignore
 ├── 00_johnson-nyquist_noise/
@@ -20,6 +19,10 @@ Electro-Optics_IMGS-689/
 All projects share a single environment and a single git repository at this root. There is
 no per-project `environment.yml` -- everything below depends on the one at the repository
 root.
+
+`CHEATSHEET.md` lives one level up, at `~/dev/CHEATSHEET.md` -- it's scoped to the whole
+`~/dev` directory (every project you have, not just this one), so it isn't part of this
+repository.
 
 ## Environment setup
 
@@ -57,8 +60,8 @@ quarto render <notebook>.ipynb            # every format listed in the notebook'
 ```
 
 PDF output requires a working LaTeX install (`quarto install tinytex`, one-time, if not
-already set up). See `CHEATSHEET.md` for troubleshooting -- kernel-not-found errors, figures
-or tables missing from a render, and similar issues already worked through once.
+already set up). See `~/dev/CHEATSHEET.md` for troubleshooting -- kernel-not-found errors,
+figures or tables missing from a render, and similar issues already worked through once.
 
 ## Git
 

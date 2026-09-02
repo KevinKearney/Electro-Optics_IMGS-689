@@ -24,3 +24,7 @@ Thumbs.db
 # Editor
 .vscode/
 .idea/
+
+# ~/dev-scoped, not project-scoped -- lives at ~/dev/CHEATSHEET.md, shared across every
+# project in ~/dev, never tracked by any one project's repo
+CHEATSHEET.md
