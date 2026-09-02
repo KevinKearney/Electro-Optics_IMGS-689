@@ -48,37 +48,3 @@ To pick up changes after editing `environment.yml`:
 ```bash
 conda env update -f environment.yml --prune
 ```
-
-## Rendering a project with Quarto
-
-From inside a project subfolder:
-
-```bash
-quarto render <notebook>.ipynb --to pdf
-quarto render <notebook>.ipynb --to html
-quarto render <notebook>.ipynb            # every format listed in the notebook's front matter
-```
-
-PDF output requires a working LaTeX install (`quarto install tinytex`, one-time, if not
-already set up). See `~/dev/CHEATSHEET.md` for troubleshooting -- kernel-not-found errors,
-figures or tables missing from a render, and similar issues already worked through once.
-
-## Git
-
-This repository tracks source notebooks and finished deliverables (PDFs). Rendered HTML and
-Quarto's auto-generated `<name>_files/` support directories are build artifacts that
-`quarto render` regenerates on demand, and are excluded via `.gitignore` rather than tracked.
-
-If this folder isn't already a git repository:
-
-```bash
-git init
-git add .
-git commit -m "Initial commit"
-```
-
-## Adding a new project
-
-Create a new numbered subfolder (`02_<short-name>/`, continuing the sequence) and work
-inside it using the environment above. No new `environment.yml` is needed -- every project
-in this repository shares the one at the root.
